@@ -40,7 +40,8 @@ Este sistema é um exemplo de **sistema multiagente inteligente** implementado e
 
 - **Flask**  
   Framework utilizado para a criação da interface web.
-  ```bash pip install Flask
+  ```bash
+    pip install Flask
 
 - **SQLite**  
   Banco de dados embutido no Python para armazenamento dos dados dos alunos.
