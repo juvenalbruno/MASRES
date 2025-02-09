@@ -134,11 +134,15 @@ class MonitoramentoAgent:
             
         if resultado:
             score_anterior, timestamp = resultado
-            if novo_score != score_anterior:
-                ajuste = (f"Progresso detectado: o score anterior era {score_anterior} e "
+            if novo_score > score_anterior:
+            ajuste = (f"Progresso detectado: o score anterior era {score_anterior} e "
+                      f"agora é {novo_score}. Recomenda-se monitoramento: {freq}.")
+            elif novo_score < score_anterior:
+                ajuste = (f"Regresso detectado: o score anterior era {score_anterior} e "
                           f"agora é {novo_score}. Recomenda-se monitoramento: {freq}.")
             else:
-                ajuste = f"Nenhuma mudança significativa no desempenho detectada. Recomenda-se monitoramento: {freq}."
+                ajuste = (f"Nenhuma mudança significativa no desempenho detectada. "
+                          f"Recomenda-se monitoramento: {freq}.")
         else:
             ajuste = f"Primeira avaliação registrada. Recomenda-se monitoramento: {freq}."
         return ajuste
